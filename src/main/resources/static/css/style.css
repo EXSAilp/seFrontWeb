@@ -1,0 +1,12 @@
+html, body {
+  height: 100%;
+}
+
+body {
+    background-image: linear-gradient(135deg, rgba(20, 46, 72, 1) 0%, rgba(141, 125, 216, 1) 33%, rgba(130, 199, 217, 1) 60%, rgba(251, 160, 137, 1) 100%);
+    background-attachment: fixed;
+}
+
+.home{
+    background-color: rgba(255, 255, 255, 0.3);
+}

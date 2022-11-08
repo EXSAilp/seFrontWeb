@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+    <title>Student score</title>
+
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/css/style.css}">
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div th:insert="fragments/header :: header"></div>
+
+<div class="container w-50 p-3">
+    <section class="shadow-lg rounded-3 my-5 px-5 py-5 container home">
+        <h1 class="display-5 text-center">Add Student</h1>
+        <form action="#" th:action="@{/student/add}" th:object="${studentDto}" method="POST">
+            <div class="mb-3">
+                <label for="inputID">Student ID</label>
+                <input id="inputID" type="text" class="form-control" th:field="*{studentId}">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('studentId')}" th:errors="*{studentId}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="inputName">Name</label>
+                <input id="inputName" type="text" class="form-control" th:field="*{name}">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="inputSurName">Last name</label>
+                <input id="inputSurName" type="text" class="form-control" th:field="*{surname}">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="inputEmail">Email</label>
+                <input id="inputEmail" type="text" class="form-control" th:field="*{email}">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="inputSubject">Subject</label>
+                <select id="inputSubject" class="form-select" th:field="*{subject}">
+                    <option value="Calculus 1" selected>Calculus 1</option>
+                    <option value="Calculus 2">Calculus 2</option>
+                    <option value="Calculus 3">Calculus 3</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="ERP">ERP</option>
+                    <option value="Bus Data">Bus Data</option>
+                    <option value="IS">IS</option>
+                </select>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="inputScore">Score</label>
+                <input id="inputScore" type="text" class="form-control" th:field="*{score}">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('score')}" th:errors="*{score}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="inputTeacher">Teacher</label>
+                <input id="inputTeacher" type="text" class="form-control" th:field="*{teacher}" value=sec:authentication="name">
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('teacher')}" th:errors="*{teacher}"></div>
+            </div>
+            <div class="text-center">
+                <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </section>
+</div>
+</body>
+</html>

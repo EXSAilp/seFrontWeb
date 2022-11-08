@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta charset="UTF-8">
+    <title>Student score</title>
+
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/css/style.css}">
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div th:insert="fragments/header :: header"></div>
+<div class="container">
+    <section class="shadow-lg rounded-3 my-5 px-5 py-5 container home">
+        <h1 class="display-5 text-center">Students</h1>
+        <table class="table table-secondary table-striped mt-3">
+            <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Teacher</th>
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.studentId}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.surname}"></td>
+                <td th:text="${student.email}"></td>
+                <td th:text="${student.subject}"></td>
+                <td th:text="${student.score}"></td>
+                <td th:text="${student.teacher}"></td>
+                <td class="text-center">
+                    <a class="btn btn-success" th:href="@{/student/update/{id}(id=${student.id})}" >Edit</a>
+                    <a class="btn btn-danger" th:href="@{/student/delete/{id}(id=${student.id})}">Delete student</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student score</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div th:insert="fragments/header :: header"></div>
+
+<div class="container w-50 h-75 d-flex justify-content-center align-items-center">
+    <section class="shadow-lg rounded-3 my-5 px-5 py-5 container home">
+        <h1 class="display-5 text-center">Check </h1>
+        <form th:action="@{/check}" method="POST">
+            <div class="mb-3">
+                <label for="inputStudentId">Student ID</label>
+                <input type="text" name="studentId" id="inputStudentId" class="form-control" required>
+            </div>
+            <div class="text-center">
+                <button id="submit-button" type="submit" class="btn btn-primary">Check your score</button>
+            </div>
+        </form>
+    </section>
+</div>
+
+</body>
+</html>
