@@ -17,12 +17,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailServiceAuth userDetailsService;
 
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//                .authorizeRequests()
+//                .antMatchers("/", "/signup",
+//                        "/css/**", "/js/**", "/check", "/check/id/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin().loginPage("/login")
+//                .defaultSuccessUrl("/", true)
+//                .permitAll()
+//                .and()
+//                .logout().logoutUrl("/logout")
+//                .clearAuthentication(true)
+//                .invalidateHttpSession(true)
+//                .deleteCookies("JSESSIONID", "remember-me")
+//                .permitAll();
+//    }
+
+    //for test add student
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/signup",
-                        "/css/**", "/js/**", "/check", "/check/id/**").permitAll()
+                        "/css/**", "/js/**", "/check", "/check/id/**", "/student", "/student/add").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login")
